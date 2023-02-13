@@ -2,18 +2,30 @@
 import './App.css';
 import axios from 'axios';
 
-import React, {Component} from "react";
+import React, {useState, useEffect} from "react";
 
-// const baseURL = 'https://api.punkapi.com/v2/beers'
 
-class App extends Component {
-  constructor() {
-    super();
+export default function App() {
+  const [beer, setBeer] = useState(null); 
 
-    this.render();{
+  useEffect(()=>{
+    const fetchData = async () => {
+      const response = await axios.get('https://api.punkapi.com/v2/beers')
       
-    }
-  }
+      setBeer(response.data)
+
+      console.log(response.data)
+    };
+    fetchData();
+  },[]); 
+
+
+  return (
+    <div>
+      {beer ? beer.map(beer => <p key={beer.id}>{beer.name + ": " + beer.tagline}</p>) : 'Loading...'}
+    </div>
+  );
+
 }
 // export default function App() {
 //   const [beer, setBeer] =React.useState(null);
@@ -43,4 +55,3 @@ class App extends Component {
 //   );
 // }
 
-export default App;
