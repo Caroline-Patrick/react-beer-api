@@ -11,22 +11,43 @@ export default function App() {
   useEffect(()=>{
     const fetchData = async () => {
       const response = await axios.get('https://api.punkapi.com/v2/beers')
-      
-      setBeer(response.data)
+      const beerArray = response.data
+     
+      setBeer(beerArray)
 
-      console.log(response.data)
+      console.log(beerArray)
     };
     fetchData();
   },[]); 
 
+  if(!beer) return null
 
   return (
-    <div>
-      {beer ? beer.map(beer => <p key={beer.id}>{beer.name + ": " + beer.tagline}</p>) : 'Loading...'}
-    </div>
+    <ul>
+      {beer.map((beer)=> (
+        <li key = {beer.id}>
+          <h3>{beer.name}</h3>
+          <h6>{beer.tagline}</h6>
+        </li>
+      ))}
+    </ul>
+   
   );
 
 }
+
+// function BeerCard({}) {
+//   const [beerDisplay, setBeerDisplay] = useState(null);
+
+
+
+//   return (
+//     <div>
+
+//     </div>
+//   )
+
+// }
 // export default function App() {
 //   const [beer, setBeer] =React.useState(null);
 
