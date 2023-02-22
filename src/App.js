@@ -1,8 +1,9 @@
 
+import React, {useState, useEffect} from "react";
 import './App.css';
 import axios from 'axios';
+// import Beer from "./Beer.js"
 
-import React, {useState, useEffect} from "react";
 
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
      
       setBeer(beerArray)
 
-      console.log(beerArray)
+      // console.log(beerArray)
     };
     fetchData();
   },[]); 
@@ -23,23 +24,37 @@ export default function App() {
   if(!beer) return null
 
   return (
-    <ul>
-      {beer.map((beer)=> (
-        <li key = {beer.id}>
+    <>
+    <h2>beers</h2>
+    <ul className="beers">
+    
+    {beer.map((beer)=> {
+      return(
+    <li className="beer" key = {beer.id}>
+          <img src={beer.image_url} alt={beer.name} />
           <h3>{beer.name}</h3>
-          <h6>{beer.tagline}</h6>
+         
         </li>
-      ))}
+      )
+
+    })
+  }
     </ul>
+    </>
    
   );
 
 }
 
+// {beer.map((beer)=> {
+//   return <Beer beer= {beer} />
+// }
+ 
+
 // function BeerCard({}) {
 //   const [beerDisplay, setBeerDisplay] = useState(null);
 
-
+    
 
 //   return (
 //     <div>
@@ -48,31 +63,3 @@ export default function App() {
 //   )
 
 // }
-// export default function App() {
-//   const [beer, setBeer] =React.useState(null);
-
-//   React.useEffect(()=> {
-//     axios.get(baseURL).then((response)=> {
-//       const beerArray =response.data;
-//       let beertype = beerArray.map(beer => beer)
-//       console.log(beertype);
-//       setBeer(beertype);
-//     });
-//   }, []);
-  
-//   if(!beer) return null;
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//        <div>
-//         <div>Beer: {beer.name}</div>
-//         <div>Tagline: {beer.tagline}</div>
-//        </div>
-      
-       
-//       </header>
-//     </div>
-//   );
-// }
-
