@@ -1,5 +1,6 @@
 import React from 'react';
 import BeerList from './BeerList';
+import HeartButton from './HeartButton';
 
 
 export default function Beer({selectedBeer, onBackClick}) {
@@ -19,6 +20,7 @@ export default function Beer({selectedBeer, onBackClick}) {
         <p>{selectedBeer.description}</p>
         
         <button onClick={handleClickBack}>Back</button>
+        <HeartButton />
         </div>
         </div>
     )

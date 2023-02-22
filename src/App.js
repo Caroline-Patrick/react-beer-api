@@ -3,6 +3,7 @@ import axios from 'axios';
 import BeerList from './components/BeerList';
 import React, {useState, useEffect} from "react";
 
+
 export default function App() {
   const [beer, setBeer] = useState(null); 
 
@@ -21,9 +22,10 @@ export default function App() {
   if(!beer) return null
 
   return (
-    
+    <>
    <BeerList beers={beer} />
-    
+   
+   </>
    
   );
 

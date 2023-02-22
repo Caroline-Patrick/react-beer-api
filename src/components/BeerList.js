@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Beer from './Beer';
+import HeartButton from './HeartButton'
 
 
 export default function BeerList({beers}) {
 
     const [selectedBeer, setSelectedBeer] =useState(null)
-    const [isClick, setClick] = useState(false);
+    
 
     const handleClick=(beer)=>{
         
@@ -33,8 +34,9 @@ export default function BeerList({beers}) {
         <li className="beer" key={beer.id}>
               
               <img src={beer.image_url} alt={beer.name} />
+              
               <h3>{beer.name}</h3>
-              <button onClick={()=>handleClick(beer)}>View</button>
+              <button onClick={()=>handleClick(beer)}>View</button><span><HeartButton /></span>
              
             </li>
           )
