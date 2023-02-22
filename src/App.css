@@ -23,3 +23,10 @@ h2 {
 img {
   max-height: 120px;
 }
+
+.BeerCard {
+  max-width: 20%;
+}
+.BeerCard > img {
+  padding-left: 20%;
+}

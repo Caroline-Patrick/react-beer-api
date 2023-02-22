@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-    <h2>beers</h2>
+    
    <BeerList beers={beer} />
     </>
    
