@@ -1,10 +1,7 @@
-
-import React, {useState, useEffect} from "react";
 import './App.css';
 import axios from 'axios';
-// import Beer from "./Beer.js"
-
-
+import BeerList from './components/BeerList';
+import React, {useState, useEffect} from "react";
 
 export default function App() {
   const [beer, setBeer] = useState(null); 
@@ -16,7 +13,7 @@ export default function App() {
      
       setBeer(beerArray)
 
-      // console.log(beerArray)
+     
     };
     fetchData();
   },[]); 
@@ -26,25 +23,38 @@ export default function App() {
   return (
     <>
     <h2>beers</h2>
-    <ul className="beers">
-    
-    {beer.map((beer)=> {
-      return(
-    <li className="beer" key = {beer.id}>
-          <img src={beer.image_url} alt={beer.name} />
-          <h3>{beer.name}</h3>
-         
-        </li>
-      )
-
-    })
-  }
-    </ul>
+   <BeerList beers={beer} />
     </>
    
   );
 
 }
+// class App extends React.Component {
+//   constructor(props) {
+//     //takes all of the data from parent (react.component) and is able to use it
+//     super(props)
+
+//     this.state = {
+//       beer: null,
+//     }
+//   }
+
+//   componentDidMount() {
+//     axios.get('https://api.punkapi.com/v2/beers').then(response => {const beerArray = response.data})
+//     this.setState({beer: beerArray})
+//   }
+//   render(){
+//     if(!this.state.beer) return <p>...Loading</p>
+//     return(
+//       <div className="App">
+
+//       </div>
+//     )
+//   }
+// }
+
+
+
 
 // {beer.map((beer)=> {
 //   return <Beer beer= {beer} />
