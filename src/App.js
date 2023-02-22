@@ -21,10 +21,9 @@ export default function App() {
   if(!beer) return null
 
   return (
-    <>
     
    <BeerList beers={beer} />
-    </>
+    
    
   );
 
