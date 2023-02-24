@@ -40,7 +40,7 @@ export default function MaterialUIBeerCard(props) {
     <Card sx={{ maxWidth: 345, bgcolor: blueGrey[200]}}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: deepOrange[500], width: 60}} aria-label="abv" variant="square" >
+          <Avatar sx={{ bgcolor: deepOrange[500], width: 70}} aria-label="abv" variant="square" >
             {`${abv}%`}
           </Avatar>
         }

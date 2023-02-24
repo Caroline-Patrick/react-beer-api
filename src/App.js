@@ -2,7 +2,7 @@ import './App.css';
 import axios from 'axios';
 import BeerList from './components/BeerList';
 import React, {useState, useEffect} from "react";
-import MateriLUIBeerCard from './components/MaterialUIBeerCard';
+
 
 
 export default function App() {
