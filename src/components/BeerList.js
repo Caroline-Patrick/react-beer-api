@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
 import Beer from './Beer';
 import HeartButton from './HeartButton'
+import MaterialUIBeerCard from './MaterialUIBeerCard';
 
 
 export default function BeerList({beers}) {
 
     const [selectedBeer, setSelectedBeer] =useState(null)
-    
 
     const handleClick=(beer)=>{
         
-        setSelectedBeer(beer)
-        
+        setSelectedBeer(beer)   
     }
 
     const handleBackClick =()=> {
@@ -33,11 +32,8 @@ export default function BeerList({beers}) {
           return(
         <li className="beer" key={beer.id}>
               
-              <img src={beer.image_url} alt={beer.name} />
               
-              <h3>{beer.name}</h3>
-              <button onClick={()=>handleClick(beer)}>View</button><span><HeartButton /></span>
-             
+             <MaterialUIBeerCard beer={beer}/>
             </li>
           )
     
