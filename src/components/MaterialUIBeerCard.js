@@ -29,9 +29,9 @@ const ExpandMore = styled((props) => {
 export default function MaterialUIBeerCard(props) {
   const [expanded, setExpanded] = React.useState(false);
   const {name, abv, tagline, description, image_url, first_brewed} = props.beer
-  const {hops, malt, yeast} = props.beer.ingredients
+//   const {hops, malt, yeast} = props.beer.ingredients
 
-console.log(props)
+// console.log(props)
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -40,24 +40,25 @@ console.log(props)
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: red[500], width: 60}} aria-label="abv" variant="square" >
             {`${abv}%`}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+       
         title={name}
         subheader={`First Brew: ${first_brewed}`}
       />
-      <CardMedia
+      <div style={{display: 'flex', justifyContent: 'center'}}><CardMedia
         component="img"
-        height="900"
+        sx={{
+            height: 400,
+            width: 250,
+            maxHeight: { xs: 233, md: 500 },
+            maxWidth: { xs: 350, md: 120 },
+          }}
         image={image_url}
         alt={`${name}'s bottle label`}
-      />
+      /></div>
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           {tagline}
@@ -67,9 +68,9 @@ console.log(props)
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        {/* <IconButton aria-label="share">
+          <ShareIcon /> */}
+        {/* </IconButton> */}
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
