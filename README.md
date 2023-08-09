@@ -15,3 +15,5 @@ The `react-beer-api` application offers an interactive experience by showcasing 
 - **API Requests**: `axios`
 - **Animations**: `react-animated-heart`
 - **Core**: `react`, `react-dom`, `react-scripts`
+
+![Project Demo](./aGif.gif)
